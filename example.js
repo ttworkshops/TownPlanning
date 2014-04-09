@@ -43,3 +43,11 @@ MapSpec.prototype.log = function () {
     out.write('\n');
   }
 };
+
+function example() {
+  var map = new MapSpec(90, 90, {height: 0, material: 'road'});
+  map.set(45, 45, {height: 20, material: 'building'});
+  map.log();
+}
+
+example();
