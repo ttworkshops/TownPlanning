@@ -1,0 +1,9 @@
+{
+  "name": "mygamename",
+  "version": "0.0.1",
+  "dependencies": {
+    "voxel-hello-world": "",
+    "voxel-player": "^0.1.0",
+    "voxel-sky": "^0.3.0"
+  }
+}
