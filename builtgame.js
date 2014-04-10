@@ -99,13 +99,17 @@ MapSpec.parse = function (s) {
 
     return new MapSpec(width, height, {height: 0, material: 'grass'}, blocks.map(toBlock));
   } catch (err) {
-    console.log('Map parse error: ' + err);
+    if (window) {
+      window.alert('Map parse error: ' + err);
+    } else {
+      console.log('Map parse error: ' + err);
+    }
     return;
   }
 };
 
 function cityBlockMap() {
-  var map = new MapSpec(90, 90, {height: 0, material: 'road'});
+  var map = new MapSpec(60, 60, {height: 0, material: 'road'});
   var x, y;
 
   for (x = 0; x < map.width; ++x) {
@@ -151,8 +155,9 @@ var heights = {};
 
 var show = cityBlockMap();
 
-var game = newGame({
-  generate: function (x, y, z) {
+function makeGenerator(show) {
+
+  function generate (x, y, z) {
     // As an optimisation we generate nothing below ground level
     if (y < 0 || y > 20) return 0;
 
@@ -165,15 +170,38 @@ var game = newGame({
       }
     }
 
-  },
+    return 0;
+  }
 
-  lightsDisabled: false, 
-  materials: COLOR_VALUE_LIST,
-  materialFlatColor: true,
-  chunkSize: 30,
-  chunkDistance: 3,
-  startingPosition: [show.width, 1, show.height]
-});
+  return generate;
+}
+
+function renderMap(data) {
+  var game = newGame({
+    lightsDisabled: false, 
+    materials: COLOR_VALUE_LIST,
+    materialFlatColor: true,
+    chunkSize: 60,
+    chunkDistance: 2,
+    startingPosition: [0, 1000, 0],
+
+    generate: makeGenerator(data)
+  });
+}
+
+window.renderMap = function () {
+  var input = document.getElementById('renderbutton');
+  input.disabled = true;
+
+  var mapdata = document.getElementById('mapdata').value;
+  var show = MapSpec.parse(mapdata);
+  if (show === undefined) {
+    input.disabled = false;
+    return;
+  } else {
+    setTimeout(function () { renderMap(show); }, 1 * 1000);
+  }
+};
 
 /*
 var createSky = require('voxel-sky')(game);
@@ -181,7 +209,7 @@ var sky = createSky(1200); // Set to noon
 */
 
 // rotate camera to look straight down
-game.controls.pitchObject.rotation.x = -1.5;
+// game.controls.pitchObject.rotation.x = -1.5;
 
 // eof
 
