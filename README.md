@@ -68,8 +68,8 @@ above, to the following specifications.
 This may become clearer by looking at the example output of such a
 program. In the list of files above, see:
 
-* example.png: a screenshot of the Town Planning Viewer showing a city to spec
-* example.txt: the textual map spec used to generate that city (in fact the buildings a lower than spec to make the block pattern clearer to see)
+* individual.png: a screenshot of the Town Planning Viewer showing a city to spec
+* individual.txt: the textual map spec used to generate that city (in fact the buildings a lower than spec to make the block pattern clearer to see)
 
 We're more interested in how you generate the map data than how you
 output the text for that data, so to save yourself time you can look
