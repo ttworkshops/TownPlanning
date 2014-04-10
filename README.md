@@ -6,23 +6,23 @@ then later in teams, you will write programs that generate the layout
 of a city.
 
 Setup
-=====
+-----
 
 You should start Google Chrome and open three tabs.
 
 * Instructions and examples: https://github.com/ttworkshops/TownPlanning  
 * Something for developing and running code online:
-** http://rextester.com/runcode  
-** http://www.compileonline.com 
-** Or you can use equivalent local tools if you have them installed
+    * http://rextester.com/runcode  
+    * http://www.compileonline.com 
+    * Or you can use equivalent local tools if you have them installed
 * Something for visualising the map layouts you generate: http://ttworkshops.github.io/TownPlanning/ 
-** Paste the full text of your map output into the input box
-** Click "Render"
-** After a few seconds, click inside the map to navigate around
-** To try different map data, reload the page
+    * Paste the full text of your map output into the input box
+    * Click "Render"
+    * After a few seconds, click inside the map to navigate around
+    * To try different map data, reload the page
 
 Individual Challenge
-====================
+--------------------
 
 Using your programming language and tools of choice, write a program
 to generate the layout of a city. A city layout is represented as
@@ -30,10 +30,10 @@ simple plain text, describing a grid of heights and materials.
 
 Example of a 3x3 map:
 
-3 3
-0 water 0 water    0 water
-0 water 4 building 0 water
-0 water 0 water    0 water
+    3 3
+    0 water 0 water    0 water
+    0 water 4 building 0 water
+    0 water 0 water    0 water
 
 The first line contains the width and height of the map.
 Each subsequent line describes one row of the map.
@@ -60,4 +60,4 @@ above, to the following specifications.
 
 
 Group Challenge
-===============
+---------------
