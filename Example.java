@@ -1,7 +1,7 @@
-package com.tomtom.example;
-
 /*
  * Remove "public" in the line below if using this with rextester.com
+ * Look at the example code on other web sites; you may have to rename
+ * this class to match what they expect.
  */
 public class Rextester
 {
@@ -49,8 +49,8 @@ public class Rextester
     }
 
     public static void main(String[] args) {
-        Square[][] map = Rextester.solution(61, 61, 5);
-        Rextester.log(map);
+        Square[][] map = solution(61, 61, 5);
+        log(map);
     }
 
 }
