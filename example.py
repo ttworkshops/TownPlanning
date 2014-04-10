@@ -20,13 +20,13 @@ def generatemap(width, height):
   return matrix
 
 def printmap(matrix):
+  print len(matrix), len(matrix[0])
   for row in matrix:
     for square in row:
-      print str(square.height), " ", square.material, " ",
+      print str(square.height), square.material,
     print
 
 width = 50
 height = 50
 matrix = generatemap(width, height)
 printmap(matrix)
-
