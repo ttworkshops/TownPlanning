@@ -17,7 +17,7 @@ public class Rextester
     
     static Square[][] solution(int width, int height, int seed) {
 
-        final String[] MATERIAL = { "road", "water", "grass", "building", "glass" };
+        final String[] MATERIAL = { "road", "water", "grass", "building" };
         final Square[][] map = new Square[width][height];
 
         for (int row = 0; row < width; row++) {
@@ -31,6 +31,11 @@ public class Rextester
     }
     
     static void log(Square[][] map) {
+        if (map == null || map.length <= 0) {
+            return;
+        }
+
+        System.out.println(map.length + " " + map[0].length);
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j <map[i].length; j++) {
                 System.out.print(map[i][j].height + " " + map[i][j].material + " ");
