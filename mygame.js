@@ -81,7 +81,7 @@ MapSpec.parse = function (s) {
   try {
     // We actually ignore newline formatting completely
 
-    var headerm = s.match(/(\d+)\W(\d+)\W((?:.|\n)*)/);
+    var headerm = s.match(/\W*(\d+)\W+(\d+)\W((?:.|\n)*)/);
     if (!headerm) throw 'Map header does not begin with two integers';
 
     var width = parseInt(headerm[1]);
@@ -159,7 +159,7 @@ function makeGenerator(show) {
     // As an optimisation we generate nothing below ground level
     if (y < 0 || y > 20) return 0;
 
-    var maph = show.get(x, z);
+    var maph = show.get(x + Math.floor(show.width / 2), z + show.width + 10);
     if (maph) {
       if (y > maph.height) {
         return 0;
@@ -179,9 +179,11 @@ function renderMap(data) {
     lightsDisabled: false, 
     materials: COLOR_VALUE_LIST,
     materialFlatColor: true,
-    chunkSize: 60,
-    chunkDistance: 2,
-    startingPosition: [0, 1000, 0],
+    // chunkSize: 60,
+    // chunkDistance: 2,
+    // chunkSize: 10,
+    // chunkDistance: 6, 
+    startingPosition: [0, 2000, 0],
 
     generate: makeGenerator(data)
   });

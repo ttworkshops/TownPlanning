@@ -83,7 +83,7 @@ MapSpec.parse = function (s) {
   try {
     // We actually ignore newline formatting completely
 
-    var headerm = s.match(/(\d+)\W(\d+)\W((?:.|\n)*)/);
+    var headerm = s.match(/\W*(\d+)\W+(\d+)\W((?:.|\n)*)/);
     if (!headerm) throw 'Map header does not begin with two integers';
 
     var width = parseInt(headerm[1]);
@@ -161,7 +161,7 @@ function makeGenerator(show) {
     // As an optimisation we generate nothing below ground level
     if (y < 0 || y > 20) return 0;
 
-    var maph = show.get(x, z);
+    var maph = show.get(x + Math.floor(show.width / 2), z + show.width + 10);
     if (maph) {
       if (y > maph.height) {
         return 0;
@@ -181,9 +181,11 @@ function renderMap(data) {
     lightsDisabled: false, 
     materials: COLOR_VALUE_LIST,
     materialFlatColor: true,
-    chunkSize: 60,
-    chunkDistance: 2,
-    startingPosition: [0, 1000, 0],
+    // chunkSize: 60,
+    // chunkDistance: 2,
+    // chunkSize: 10,
+    // chunkDistance: 6, 
+    startingPosition: [0, 2000, 0],
 
     generate: makeGenerator(data)
   });
@@ -460,7 +462,7 @@ function Game(opts) {
   this.region = regionChange(this.spatial, aabb([0, 0, 0], [1, 1, 1]), this.chunkSize)
   this.voxelRegion = regionChange(this.spatial, 1)
   this.chunkRegion = regionChange(this.spatial, this.chunkSize)
-  this.asyncChunkGeneration = false
+  this.asyncChunkGeneration = true // KJP
 
   // contains chunks that has had an update this tick. Will be generated right before redrawing the frame
   this.chunksNeedsUpdate = {}
@@ -483,7 +485,12 @@ function Game(opts) {
 
   if (process.browser) this.materials.load(this.materialNames)
 
-  if (this.generateChunks) this.handleChunkGeneration()
+  if (this.generateChunks) {
+    var genthis = this;
+    setTimeout(function () {
+      genthis.handleChunkGeneration();
+    }, 1 * 1000);
+  }
 
   // client side only after this point
   if (!process.browser) return
