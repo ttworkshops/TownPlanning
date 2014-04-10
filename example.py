@@ -7,13 +7,13 @@ class Square:
     self.height = height;
     self.material = material;
 
-def generatemap(width, height, seed):
+def generatemap(width, height):
   materials = [ 'road', 'water', 'grass', 'building', 'glass' ]
 
   matrix = [[None for x in range(width)] for y in range(height)] 
   for x in range(0, width):
     for y in range(0, height):
-      squareheight = int(random.random() * seed)
+      squareheight = int(random.random() * 10)
       material = int(random.random() * len(materials) - 1)
       square = Square(squareheight, materials[material])
       matrix[x][y] = square
@@ -27,6 +27,6 @@ def printmap(matrix):
 
 width = 50
 height = 50
-matrix = generatemap(width, height, 20)
+matrix = generatemap(width, height)
 printmap(matrix)
 
