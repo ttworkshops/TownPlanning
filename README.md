@@ -11,16 +11,21 @@ Setup
 You should start Google Chrome and open three tabs.
 
 * Instructions and examples: https://github.com/ttworkshops/TownPlanning  
-* Something for developing and running code online:
+* Something for developing and running code online in a choice of languages:
+    * IMPORTANT: If your browser crashes, the network goes down, or even if you hit "back" at the wrong time, 
+      these online coding websites will simply lose your code. Consider editing locally and pasting in, or 
+      taking frequent copy & pasted backups of the code under development.
     * http://rextester.com/runcode  
+    * http://codebunk.com/bunk
+    * https://ideone.com 
     * http://www.compileonline.com 
     * Or you can use equivalent local tools if you have them installed
 * (Experimental!) Something for visualising the map layouts you generate: http://ttworkshops.github.io/TownPlanning/ 
     * Paste the full text of your map output into the input box
     * Click "Render"
     * After a few seconds, click inside the map to navigate around
-    * Use the mouse to change where you're looking, space to jump/fly, shift to go down
-    * Type escape to regain mouse control
+    * Use the mouse to change where you're looking, cursors to move, space to jump/fly, shift to go down
+    * Hit escape to regain mouse control
     * To try different map data, reload the page
 
 Individual Challenge
