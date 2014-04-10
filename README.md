@@ -60,21 +60,31 @@ high, surrounded by a moat of water at ground level.
 Your indiviual task is to generate a text city map in the format
 above, to the following specifications.
 
-* The city should be 60x60 in size
+* The city should be 61 x 61 in size
 * The map should be populated by buildings (i.e. cells with material type building) of random heights (between 0 and 19), separated by a grid of 1-block-wide roads at height 0 running parallel to both the x and y axes
-* Roads should appear at the perimeter of the map and then evenly spaced within, with parallel roads having 2 blocks of buildings between them
-* As a flourish, every crossroads should have a water fountain (material water at height 0)
+* Roads should appear at the perimeter of the map and then evenly spaced within, with parallel roads having 4 blocks of buildings between them
+* As a flourish, if you have time, every crossroads should have a water fountain (material water at height 0)
+
+This may become clearer by looking at the example output of such a
+program. In the list of files above, see:
+
+* example.png: a screenshot of the Town Planning Viewer showing a city to spec
+* example.txt: the textual map spec used to generate that city (in fact the buildings a lower than spec to make the block pattern clearer to see)
 
 We're more interested in how you generate the map data than how you
 output the text for that data, so to save yourself time you can look
 at the example files above to see how so output a simple/random map
-with a conforming format.
+with a conforming format. In each of these:
 
-Because we'll be doing more interesting things with the maps later, we
-recommend using a datastructure to hold the map while you generate it,
-then output the data in text form at the end. Don't try to generate
-and ouput at the same time, on the fly!
+* A matrix (or 2D array) is constructed to hold the map data
+* Some code is run to set up the height and material content of each cell of the matrix
+* Finally, the matrix is written out in the text format
 
+Because we'll be doing more interesting things with the maps later,
+things that might require multiple passes to generate, we very much
+recommend this model of using a datastructure to hold the map while
+you generate it, then outputing the data in text form at the
+end. Don't try to generate and ouput at the same time, on the fly!
 
 Group Challenge
 ---------------
@@ -85,8 +95,8 @@ properly get started you will need:
 * A group to work within (we will help organise that)
 * A name for your group! Decided by its members
 
-The group challenge takes things to the next level. Using the
-individual challenge map specification as a starting point, we now
+The group challenge emphasises organisation and collaboration. Using
+the individual challenge map specification as a starting point, we now
 want new features.
 
 * One 30x30 quadrant of the map should be left unchanged
@@ -110,5 +120,5 @@ account:
   to attempt a few fully integrated integrations 
 
 You can exchange code be email, instant messaging, memory sticks, SD
-cards, or any other means. But part of the challenge is to quickly
-organise a way to collaborate and share code.
+cards, http://pastebin.com, or any other means. But part of the
+challenge is to quickly organise a way to collaborate and share code.
