@@ -1,3 +1,8 @@
+/// This is a node.js example, so choose node.js as your language
+/// option on the web sites
+
+/// Boilerplate for storing, accessing, and writing a map spec
+
 function MapSpec(w, h, def, blocks) {
   if (blocks === undefined) blocks = [];
   var x, y, matrix;
@@ -44,8 +49,10 @@ MapSpec.prototype.log = function () {
   }
 };
 
+/// Your code to populate the map in interesting ways goes here
+
 function example() {
-  var map = new MapSpec(90, 90, {height: 0, material: 'road'});
+  var map = new MapSpec(61, 61, {height: 0, material: 'road'});
   map.set(45, 45, {height: 20, material: 'building'});
   map.log();
 }

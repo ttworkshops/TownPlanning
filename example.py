@@ -1,11 +1,22 @@
 #!/usr/local/bin/python2.7
-    
+
 import random
+
+# Boilerplate for storing, accessing, and writing a map spec
 
 class Square:
   def __init__(self, height, material):
     self.height = height;
     self.material = material;
+
+def printmap(matrix):
+  print len(matrix), len(matrix[0])
+  for row in matrix:
+    for square in row:
+      print str(square.height), square.material,
+    print
+
+# Your code to populate the map in interesting ways goes here
 
 def generatemap(width, height):
   materials = [ 'road', 'water', 'grass', 'building', 'glass' ]
@@ -19,14 +30,7 @@ def generatemap(width, height):
       matrix[x][y] = square
   return matrix
 
-def printmap(matrix):
-  print len(matrix), len(matrix[0])
-  for row in matrix:
-    for square in row:
-      print str(square.height), square.material,
-    print
-
-width = 50
-height = 50
+width = 61
+height = 61
 matrix = generatemap(width, height)
 printmap(matrix)

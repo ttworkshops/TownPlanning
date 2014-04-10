@@ -4,7 +4,9 @@ package com.tomtom.example;
  * Remove "public" in the line below if using this with rextester.com
  */
 public class Rextester
-{  
+{
+    /// Boilerplate for storing, accessing, and writing a map spec
+    
     static class Square {
         public final int height;
         public final String material;
@@ -13,21 +15,6 @@ public class Rextester
             this.height = height;
             this.material = material;
         }
-    }
-    
-    static Square[][] solution(int width, int height, int seed) {
-
-        final String[] MATERIAL = { "road", "water", "grass", "building" };
-        final Square[][] map = new Square[width][height];
-
-        for (int row = 0; row < width; row++) {
-            for (int column = 0; column < height; column++) {
-                int squareHeight = (int)(Math.random() * seed);
-                int material = (int)(Math.random() * MATERIAL.length);
-                map[row][column] = new Square(squareHeight, MATERIAL[material]);
-            }
-        }
-        return map;
     }
     
     static void log(Square[][] map) {
@@ -44,8 +31,26 @@ public class Rextester
         }
     }
 
+    /// Your code to populate the map in interesting ways goes here
+
+    static Square[][] solution(int width, int height, int seed) {
+
+        final String[] MATERIAL = { "road", "water", "grass", "building" };
+        final Square[][] map = new Square[width][height];
+
+        for (int row = 0; row < width; row++) {
+            for (int column = 0; column < height; column++) {
+                int squareHeight = (int)(Math.random() * seed);
+                int material = (int)(Math.random() * MATERIAL.length);
+                map[row][column] = new Square(squareHeight, MATERIAL[material]);
+            }
+        }
+        return map;
+    }
+
     public static void main(String[] args) {
-        Square[][] map = Rextester.solution(50, 50, 5);
+        Square[][] map = Rextester.solution(61, 61, 5);
         Rextester.log(map);
     }
+
 }
