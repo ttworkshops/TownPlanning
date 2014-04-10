@@ -20,6 +20,7 @@ You should start Google Chrome and open three tabs.
     * Click "Render"
     * After a few seconds, click inside the map to navigate around
     * Use the mouse to change where you're looking, space to jump/fly, shift to go down
+    * Type escape to regain mouse control
     * To try different map data, reload the page
 
 Individual Challenge
@@ -87,7 +88,7 @@ want new features.
 * One 30x30 quadrant of the map should be changed to contain a
   tasteful casino building in the shape of a square-based pyramid
 * One 30x30 quadrant should become a grass park with an 
-  interestingly-shaped (i.e. not rectangular) within in it
+  interestingly-shaped (i.e. not rectangular) lake within in it
 * One 30x30 quadrant should contain a signature feature of the 
   team's own devising 
 
