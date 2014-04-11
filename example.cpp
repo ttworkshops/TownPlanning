@@ -57,6 +57,8 @@ public:
 
 /// Your code to populate the map in interesting ways goes here
 
+// Materials you can use: "grass", "water", "road", "building"
+
 int main() {
     MapSpec spec(61, 61, Square(0, "grass"));
 
